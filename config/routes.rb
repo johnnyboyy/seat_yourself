@@ -1,6 +1,6 @@
 SeatYourself::Application.routes.draw do
   resources :restaurants, except: [:index]
-
+  resources :users, except: [:index]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

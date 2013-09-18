@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20130918172450) do
     t.string   "category"
     t.integer  "seats"
     t.integer  "price"
+    t.string   "picture_url"
+    t.string   "address"
+    t.integer  "ratings"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

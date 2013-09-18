@@ -1,0 +1,21 @@
+<h1>Restaurants</h1>
+<ul>
+	<% @restaurants.each do |r| %>
+		<li>
+			<%= r.name %>
+			<%= image_tag(r.picture_url) %>
+			<p>
+				Category: <%= r.category %><br />
+				Seats: <%= r.seats %><br />
+				Address: <%= r.address	%>
+			</p>
+			<div class="ratings">
+				Rating: <%= r.ratings %>
+			</div>
+			<span class="price">
+				Price: <%= r.price %>
+			</span>
+		</li>
+	<% end %>
+</ul>
+

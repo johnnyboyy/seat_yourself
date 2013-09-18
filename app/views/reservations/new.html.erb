@@ -22,7 +22,7 @@
 			<%=f.text_field :groupsize, placeholder:'group size' %>
 		</div>
 		<div class="field">
-			<%=f.label :restaurant %>
+			<%=f.collection_select :restaurant, Restaurant.all, :id, :name_with_initial, prompt: true %>
 			<%=f.text_field :restaurant %>
 		</div>
 		<div class="field">

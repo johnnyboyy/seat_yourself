@@ -11,6 +11,8 @@ class RestaurantsController < ApplicationController
 	      format.html # show.html.erb
 	      format.json { render json: @restaurant }
 	    end
+
+	    @reservations = Reservation.where(restaurant: @restaurant)
 	  end
 	
 	  def new

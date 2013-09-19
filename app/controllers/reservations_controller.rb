@@ -12,10 +12,6 @@ class ReservationsController < ApplicationController
 	def new
 		@reservation = Reservation.new
 	
-	  respond_to do |format|
-	    format.html # new.html.erb
-	    format.json { render json: @reservations }
-	  end
 	end
 	
 	def edit
@@ -24,10 +20,11 @@ class ReservationsController < ApplicationController
 	
 	def create
 		@reservation = Reservation.new(reservation_params)
+		#@reservation.restaurant_id = params[:restaurant_id]
 	
 	  respond_to do |format|
 	    if @reservation.save
-	      format.html { redirect_to @reservation, notice: 'reservation was successfully created.' }
+	      format.html { redirect_to new_reservation_path, notice: 'reservation was successfully created.' }
 	      format.json { render json: @reservation, status: :created, location: @reservation }
 	    else
 	      format.html { render action: "new" }
@@ -61,6 +58,6 @@ class ReservationsController < ApplicationController
 	end
 	
 	def reservation_params
-		params.require(:reservation).permit(:name, :category, :seats, :price, :picture, :address, :ratings)
+		params.require(:reservation).permit(:name, :groupsize, :restaurant)
 	end
 end

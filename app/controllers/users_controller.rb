@@ -54,13 +54,13 @@ class UsersController < ApplicationController
 		@user.destroy
 	
 	  respond_to do |format|
-	    format.html { redirect_to users_url }
+	    format.html { redirect_to :root }
 	    format.json { head :no_content }
 	  end
 	end
 	
 	def user_params
-		params.require(:user).permit(:username, :email, :crypted_password, :salt, :location)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation)
 	end
 	
 end

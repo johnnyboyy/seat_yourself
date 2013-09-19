@@ -10,5 +10,7 @@ class Restaurant < ActiveRecord::Base
 		seats - self.reservations.inject(0) {
 		 |sum, r| sum += r.groupsize
 		}
+	end
+	
 
 end

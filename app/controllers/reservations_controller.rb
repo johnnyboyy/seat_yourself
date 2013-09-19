@@ -24,4 +24,5 @@ class ReservationsController < ApplicationController
 
 	def reservation_params
 		params.require(:reservation).permit(:reservation_name, :groupsize)
+	end
 end

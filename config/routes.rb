@@ -3,10 +3,13 @@ SeatYourself::Application.routes.draw do
     resources :reservations
   end
   resources :users, except: [:index]
+  resources :sessions, only: [:new, :create, :destroy]
 
 
-  root to: 'restaurants#index'
-
+  root to: "sessions#new"
+  
+  get "users/new"
+  get "users/create"
 
 
 

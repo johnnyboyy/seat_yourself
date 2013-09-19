@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+		<div class="input_area">
+			<%= form_for(@sessions) do |f| %>
+
+		<div class="field">
+			<%=f.label :email %>
+			<%=f.text_field :email, params[:email],placeholder:'email'%>
+		</div>
+		<div class="field">
+			<%=f.label :password %>
+			<%=f.password_field :password, params [:password], placeholder:'password' %>
+		</div>
+		<div class="submit"><%= f.submit "Log in" %></div>
+		</div>
+
+
+<% end %>

@@ -4,7 +4,10 @@ SeatYourself::Application.routes.draw do
   end
   resources :users, except: [:index]
 
+
   root to: 'restaurants#index'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

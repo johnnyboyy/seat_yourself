@@ -1,9 +1,5 @@
 class ReservationsController < ApplicationController
 
-	def show
-		@reservation = Reservation.find(parms[:id])
-	end
-
 	def new
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new
@@ -19,8 +15,6 @@ class ReservationsController < ApplicationController
 		else
 			render 'new'
 		end
-
-
 	end
 
 
@@ -29,6 +23,5 @@ class ReservationsController < ApplicationController
 
 
 	def reservation_params
-		params.require(:reservation).permit(:reservation_name)
-	end
+		params.require(:reservation).permit(:reservation_name, :groupsize)
 end

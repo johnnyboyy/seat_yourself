@@ -27,6 +27,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem "sorcery"
 
+group :test do 
+	gem "rspec-rails"
+end
+
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

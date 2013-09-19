@@ -1,5 +1,7 @@
 SeatYourself::Application.routes.draw do
-  resources :restaurants
+  resources :restaurants do
+    resources :reservations
+  end
   resources :users, except: [:index]
 
   root to: 'restaurants#index'

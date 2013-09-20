@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		redirect_to :root
 	end
 	
 	def new
@@ -22,7 +21,8 @@ class UsersController < ApplicationController
 	
 	  respond_to do |format|
 	    if @user.save
-	      format.html { redirect_to :root, notice: 'user was successfully created.' }
+	    	auto_login(@user)
+	      format.html { redirect_to :root , notice: 'user was successfully created.' }
 	      format.json { render json: @user, status: :created, location: @user }
 	    else
 	      format.html { render action: "new" }

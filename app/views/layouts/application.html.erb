@@ -11,7 +11,7 @@
 	<div id="navbar">
 		<ul class="nav_items">
 			<li class = "nav item">
-			<%= link_to "SeatYourself", restaurants_path %>
+			<%= link_to "SeatYourself", restaurants_path, class: "logo" %>
 			</li>
 				<li class = "nav item">
 				<%= link_to "Login", new_session_path %>
@@ -29,7 +29,10 @@
 			
 		</ul>
 	</div>
-<h2><%= current_user.username %></h2>
+
+	<% if current_user %>
+		<h4>Signed in as: <%= link_to current_user.username, user_path(current_user) %></h4>
+	<% end %>
 
 <%= yield %>
 

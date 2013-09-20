@@ -14,8 +14,10 @@ before_filter :get_restaurant
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = @restaurant.reservations.create(reservation_params)
 		@reservation.user_id = current_user.id
-
-		if @reservation.save
+		
+		if @reservation.groupsize > @restaurant.available_seats
+			render 'new', alert: "There aren't enough seats left for party size!"
+		elsif @reservation.save
 			redirect_to @restaurant, notice: 'Reservation created successfully'
 		else
 			render 'new'

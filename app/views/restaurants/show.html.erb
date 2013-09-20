@@ -8,4 +8,7 @@
 		Party of : <%= res.groupsize %>
 	</p>
 <% end %>
-<%= link_to "New Reservation", new_restaurant_reservation_path(params[:id]) %>
+<% if @reservations.map(&:user_id).include?(current_user.id) %>
+<% else %>
+	<%= link_to "New Reservation", new_restaurant_reservation_path(params[:id]) %>
+<% end %>

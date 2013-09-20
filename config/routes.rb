@@ -6,7 +6,7 @@ SeatYourself::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
 
-  root to: "sessions#new"
+  root to: "restaurants#index"
   
   get "users/new"
   get "users/create"

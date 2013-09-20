@@ -12,18 +12,18 @@
 		<ul class="nav_items">
 			<li class = "nav item">
 			<%= link_to "SeatYourself", restaurants_path %>
-		</li>
-			<li class = "nav item">
-			<%= link_to "Login", new_session_path %>
-		</li>
-			<li class = "nav item">
-			<%= link_to "Sign up", new_user_path %>
-		</li>
-			<li class = "nav item">
-			<%= link_to "Log out", session_path(current_user), method: :delete %>
-		</li>
+			</li>
+				<li class = "nav item">
+				<%= link_to "Login", new_session_path %>
+			</li>
+				<li class = "nav item">
+				<%= link_to "Sign up", new_user_path %>
+			</li>
+				<li class = "nav item">
+				<%= link_to "Log out", session_path(current_user), method: :delete %>
+			</li>
 		</ul>
-</div>
+	</div>
 <h2><%= current_user %></h2>
 
 <%= yield %>

@@ -11,11 +11,12 @@ before_filter :get_restaurant
 	end
 
 	def create
+		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = @restaurant.reservations.create(reservation_params)
 		@reservation.user_id = current_user.id
 
 		if @reservation.save
-			redirect_to reservation_path notice: 'Reservation created successfully'
+			redirect_to @restaurant, notice: 'Reservation created successfully'
 		else
 			render 'new'
 		end

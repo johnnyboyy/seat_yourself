@@ -6,13 +6,14 @@ class RestaurantsController < ApplicationController
 	
 	  def show
 	  	@restaurant = Restaurant.find(params[:id])
+	  	@reservations = @restaurant.reservations
 	
 	    respond_to do |format|
 	      format.html # show.html.erb
 	      format.json { render json: @restaurant }
 	    end
 
-	    @reservations = Reservation.where(restaurant: @restaurant)
+	   
 	  end
 	
 	  def new

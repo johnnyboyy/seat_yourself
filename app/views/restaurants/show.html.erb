@@ -1,3 +1,11 @@
 <h1>Show</h1>
-<%= @restaurant.name %>
-<%= @reservations %>
+<h2><%= @restaurant.name %></h2>
+<p>Remaining seats: <%= @restaurant.available_seats %> </p> 
+<h3>Reservations:</h3>
+<% @reservations.each do |res| %>
+	<p>
+		Reservation for: <%= res.reservation_name %> <br />
+		Party of : <%= res.groupsize %>
+	</p>
+<% end %>
+<%= link_to "New Reservation", new_restaurant_reservation_path(params[:id]) %>

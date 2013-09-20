@@ -20,7 +20,7 @@
 		</div>
 		<div class="groupsize">
 			<%=f.label :groupsize %>
-			<%=f.select :groupsize, ((1..20).map {|i|[i,i]}) %>
+			<%=f.select :groupsize, ((1..@restaurant.available_seats).map {|i|[i,i]}) %>
 
 		</div>
 		<div class="submit">

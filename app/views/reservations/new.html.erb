@@ -14,15 +14,19 @@
   <% end %>
 
 	<ul>
-		<div class="field">
+		<div class="reservation_name">
 			<%=f.label :reservation_name, "Name for reservation" %>
-			<%=f.text_field :reservation_name, placeholder:'name'%>
+			<%=f.text_field :reservation_name, placeholder:'enter your name'%>
 		</div>
-		<div class="field">
+		<div class="groupsize">
 			<%=f.label :groupsize %>
-			<%=f.text_field :groupsize, placeholder:'group size' %>
+			<%=f.select :groupsize, ((1..20).map {|i|[i,i]}) %>
+
 		</div>
-		<div class="field">
+		<div class="submit">
+			<%= f.submit "Reserve now" %>
+		</div>
+
 
 
 <% end %>

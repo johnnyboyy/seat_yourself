@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
 
 	def new
-		if sessions[:user_id] != nil
-			redirect_to restaurants_url
-		end
+		@user = User.new
+		# if sessions[:user_id] != nil
+		# 	redirect_to restaurants_url
+		# end
 	end
 
 	def create

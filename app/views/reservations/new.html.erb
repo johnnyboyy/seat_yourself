@@ -1,6 +1,6 @@
 <h1>New Reservation</h1>
 
-<%= form_for([@restaurant, @restaurant.reservations.build]) do |f| %>
+<%= form_for([@restaurant, @reservation]) do |f| %>
   <% if @reservation.errors.any? %>
 		<div id="error_explanation">
 		  <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
@@ -25,6 +25,7 @@
 		</div>
 		<div class="submit">
 			<%= f.submit "Reserve now" %>
+			<%= f.hidden_field :restaurant_id %>
 		</div>
 
 

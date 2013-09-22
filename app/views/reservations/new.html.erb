@@ -23,6 +23,9 @@
 			<%=f.select :groupsize, ((1..@restaurant.available_seats).map {|i|[i,i]}) %>
 
 		</div>
+		<div class="dateselect">
+			<%=f.date_select :updated_at %>
+			<%=f.time_select :updated_at %>
 		<div class="submit">
 			<%= f.submit "Reserve now" %>
 			<%= f.hidden_field :restaurant_id %>

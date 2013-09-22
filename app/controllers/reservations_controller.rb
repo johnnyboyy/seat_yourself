@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
 before_filter :get_restaurant
 
 	def show
-		@reservation = Reservation.find(params[:id])
 	end
 
 	def new
@@ -11,7 +10,6 @@ before_filter :get_restaurant
 	end
 
 	def create
-		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = @restaurant.reservations.create(reservation_params)
 		@reservation.user_id = current_user.id
 		
@@ -33,6 +31,6 @@ before_filter :get_restaurant
 	end
 
 	def reservation_params
-		params.require(:reservation).permit(:reservation_name, :groupsize)
+		params.require(:reservation).permit(:reservation_name, :groupsize, :updated_at)
 	end
 end

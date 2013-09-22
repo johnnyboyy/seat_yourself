@@ -31,11 +31,6 @@ group :test do
 	gem "rspec-rails"
 end
 
-group :run do 
-	gem 'bourbon'
-	
-end
-
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

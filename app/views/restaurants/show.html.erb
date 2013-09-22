@@ -1,5 +1,6 @@
 <h1>Show</h1>
 <h2><%= @restaurant.name %></h2>
+<p> <%= image_tag(@restaurant.picture_url) %>
 <p>Remaining seats: <%= @restaurant.available_seats %> </p> 
 <h3>Reservations:</h3>
 <% @reservations.each do |res| %>
@@ -11,4 +12,5 @@
 <% if @reservations.map(&:user_id).include?(current_user.id) %>
 <% else %>
 	<%= link_to "New Reservation", new_restaurant_reservation_path(params[:id]) %>
+	<%= link_to "Delete Restaurant", restaurant_path(params[:id]), method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>

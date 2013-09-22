@@ -24,8 +24,7 @@
 
 		</div>
 		<div class="dateselect">
-			<%=f.date_select :updated_at %>
-			<%=f.time_select :updated_at %>
+			<%=f.datetime_select(:updated_at, minute_step: 30, ampm: true, prompt: true, discard_year: true, time_zone: 'Eastern Time (US & Canada)') %>
 		<div class="submit">
 			<%= f.submit "Reserve now" %>
 			<%= f.hidden_field :restaurant_id %>

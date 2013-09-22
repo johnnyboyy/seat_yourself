@@ -18,15 +18,15 @@
 		</div>
 		<div class="field">
 			<%=f.label :category %>
-			<%=f.text_field :category %>
+			<%= f.select :category, [['Italian','italian'],['Japanese','japanese'],['Mexican','mexican'],['Chinese','chinese'],['Indian','indian'],['Vietnamese','vietnamese']], class: "cuisines" %>
 		</div>
 		<div class="field">
 			<%=f.label :seats %>
-			<%=f.number_field :seats %>
+			<%=f.select :seats, (1..50) %>
 		</div>
 		<div class="field">
 			<%=f.label :price %>
-			<%=f.number_field :price %>
+			<%=f.select :price, [['$'],['$$'],['$$$']] %>
 		</div>	
 		<div class="field">
 			<%=f.label :picture_url %>

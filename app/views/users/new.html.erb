@@ -30,6 +30,10 @@
 			<%=f.password_field :password_confirmation, placeholder: 'confirm password' %>
 		</div>	
 		<div class="field">
+			<%=f.label :restaurant_owner %>
+			<%=f.check_box :restaurant_owner %>
+		</div>
+		<div class="field">
 			<%=f.label :location %>
 			<%=f.text_field :location %>
 		</div>

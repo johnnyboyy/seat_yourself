@@ -1,11 +1,21 @@
 <h1><%= @user.username %></h1>
 
+<% if @user.restaurant_owner %>
+	<% if @owned_restaurants.length > 0 %>
+		<% @owned_restaurants.each do |rest| %>
+
+			<%= link_to rest.name, rest %>
+
+		<% end %>
+	<% end %>
+<% end %>
+
+
 
 <ul>
 	<% if @user.reservations %>
 		<% @user.reservations.each do |res| %>
-			<li>Restaurant: 
-				<p><%= res.restaurant_id %></p>
+			<li><h4><%= link_to res.name, restaurant_path(res.restaurant_id) %></h4>
 				Party-size: 
 				<%= res.groupsize %>
 			</li>

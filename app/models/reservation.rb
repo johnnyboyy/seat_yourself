@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :restaurant
+	belongs_to :user, dependent: :destroy
+	belongs_to :restaurant, dependent: :destroy
 
 	validates :user_id, uniqueness: true
 

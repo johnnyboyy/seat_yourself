@@ -15,9 +15,11 @@
 <ul>
 	<% if @user.reservations %>
 		<% @user.reservations.each do |res| %>
-			<li><h4><%= link_to res.name, restaurant_path(res.restaurant_id) %></h4>
+			<li><h4><%= link_to res.restaurant.name, restaurant_path(res.restaurant_id) %></h4>
 				Party-size: 
-				<%= res.groupsize %>
+				<%= res.groupsize %><br />
+				<%= link_to "Edit Reservation", 
+					edit_restaurant_reservation_path(id: res.id, restaurant_id: res.restaurant.id) %>
 			</li>
 		<% end %>
 	<% else %>

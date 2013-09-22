@@ -1,7 +1,7 @@
 <h1>Restaurants</h1>
 <ul>
 	<% @restaurants.each do |r| %>
-			<%= r.name %>
+			<h2><%= r.name %></h2>
 			<%= image_tag(r.picture_url) %>
 			<p>
 				Category: <%= r.category %><br />
@@ -13,8 +13,8 @@
 			</div>
 			<span class="price">
 				Price: <%= r.price %>
-			</span>
-			<%= link_to "show page", r %>
+			</span></br></br>
+			<%= link_to "show page", r%>
 	<% end %>
 </ul>
 

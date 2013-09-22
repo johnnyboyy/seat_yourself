@@ -1,1 +1,44 @@
-<h1>edit</h1>
+<h1>Edit Restaurant</h1>
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+		  <ul>
+		  <% @restaurant.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+  <% end %>
+
+		<div class="field">
+			<%=f.label :name %>
+			<%=f.text_field :name %>
+		</div>
+		<div class="field">
+			<%=f.label :category %>
+			<%= f.select :category, [['Italian','italian'],['Japanese','japanese'],['Mexican','mexican'],['Chinese','chinese'],['Indian','indian'],['Vietnamese','vietnamese']], class: "cuisines" %>
+		</div>
+		<div class="field">
+			<%=f.label :seats %>
+			<%=f.select :seats, (1..50) %>
+		</div>
+		<div class="field">
+			<%=f.label :price %>
+			<%=f.select :price, [['$'],['$$'],['$$$']] %>
+		</div>	
+		<div class="field">
+			<%=f.label :picture_url %>
+			<%=f.text_field :picture_url %>
+		</div>
+		<div class="field">
+			<%=f.label :address %>
+			<%=f.text_field :address %>
+		</div>
+		<div class="field">
+			<%=f.submit %>
+		</div>
+
+
+<% end %>

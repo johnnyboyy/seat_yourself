@@ -31,7 +31,6 @@ group :test do
 	gem "rspec-rails"
 end
 
-
 gem 'bourbon'
 gem 'neat'
 

@@ -1,0 +1,30 @@
+<%= form_for([@restaurant, @reservation]) do |f| %>
+  <% if @reservation.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+		  <ul>
+		  <% @reservation.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+  <% end %>
+
+	<div class="reservation_name">
+		<%=f.label :reservation_name, "Name for reservation" %>
+		<%=f.text_field :reservation_name, placeholder:'enter your name'%>
+	</div>
+	<div class="groupsize">
+		<%=f.label :groupsize %>
+		<%=f.select :groupsize, ((1..@restaurant.available_seats).map {|i|[i,i]}) %>
+
+	</div>
+	<div class="dateselect">
+		<%=f.datetime_select(:updated_at, minute_step: 30, ampm: true, prompt: true, discard_year: true, time_zone: 'Eastern Time (US & Canada)') %>
+	<div class="submit">
+		<%= f.submit "Reserve now" %>
+		<%= f.hidden_field :restaurant_id %>
+	</div>
+
+<% end %>

@@ -1,0 +1,33 @@
+	<div id="navbar">
+		<ul class="nav_items">
+			<li class = "nav item">
+			<%= link_to "SeatYourself", restaurants_path, class: "logo" %>
+			</li>
+				<% if current_user %>
+
+					<% if current_user.restaurant_owner %>
+						<li class = "nav item">
+							<%= link_to "New Restaurant", new_restaurant_path %>
+						</li>
+					<% end %>
+
+					<li class = "nav item">
+						<%= link_to "Log out", session_path(current_user), method: :delete %>
+					</li>
+
+				<% else %>
+
+					<li class = "nav item">
+						<%= link_to "Login", new_session_path %>
+					</li>
+					<li class = "nav item">
+						<%= link_to "Sign up", new_user_path %>
+					</li>
+
+				<% end %>
+
+			</li>
+
+			
+		</ul>
+	</div>

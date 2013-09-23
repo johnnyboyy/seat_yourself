@@ -8,27 +8,18 @@
 </head>
 <body>
 
-	<div id="navbar">
-		<ul class="nav_items">
-			<li class = "nav item">
-			<%= link_to "SeatYourself", restaurants_path, class: "logo" %>
-			</li>
-				<li class = "nav item">
-				<%= link_to "Login", new_session_path %>
-			</li>
-				<li class = "nav item">
-				<%= link_to "Sign up", new_user_path %>
-			</li>
-				<li class = "nav item">
-				<%= link_to "Log out", session_path(current_user), method: :delete %>
-			</li>
-			</li>
-				<li class = "nav item">
-				<%= link_to "New Restaurant", new_restaurant_path %>
-			</li>
-			
-		</ul>
-	</div>
+	<%= render 'layouts/navbar' %>
+
+	<ul class="message_container">
+	  <% if flash[:notice] %>
+	    <li class="alert alert-success"><%= flash[:notice] %></li>
+	  <% end %>
+
+	  <% if flash[:alert] %>
+	    <li class="alert alert-error"><%= flash[:alert] %></li>
+	  <% end %>
+	</ul>
+
 
 	<% if current_user %>
 		<h4>Signed in as: <%= link_to current_user.username, user_path(current_user) %></h4>

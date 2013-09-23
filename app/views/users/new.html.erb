@@ -1,4 +1,6 @@
 <h1>New User</h1>
+<div class="bg"> 
+	</div>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
 		<div id="error_explanation">
@@ -37,8 +39,8 @@
 			<%=f.label :location %>
 			<%=f.text_field :location %>
 		</div>
-		<div class="field">
-			<%=f.submit %>
+		<div class="actions">
+			<%=f.submit%>
 		</div>
 
 

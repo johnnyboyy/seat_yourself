@@ -2,19 +2,18 @@
 <ul>
 	<% @restaurants.each do |r| %>
 			<h2><%= r.name %></h2>
-			<%= image_tag(r.picture_url) %>
-			<p>
+			<section class="restaurant_image"><%= image_tag(r.picture_url) %></section>
+			<section class="section">
 				Category: <%= r.category %><br />
 				Seats: <%= r.seats %><br />
 				Address: <%= r.address	%>
-			</p>
 			<div class="ratings">
 				Rating: <%= r.ratings %>
 			</div>
 			<span class="price">
 				Price: <%= r.price %>
-			</span></br></br>
-			<%= link_to "show page", r%>
+			</span></br></br></section>
+			<div class="button"><%= link_to "show page", r%></div>
 	<% end %>
 </ul>
 
